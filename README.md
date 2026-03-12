@@ -29,11 +29,11 @@
 +-----------------------------------+
 
 6. Paleta kolorów:
-    - #a4f03a 
+    - #85b049
     - #ffffff
-    - #3acbf0
+    - #72c5da
 
 7. Fonty:
-    - Inter
-    - Montserrat
+    - Courier New
+    - Sans-serif
     - Georgia
