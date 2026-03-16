@@ -1,0 +1,72 @@
+CREATE TABLE Klicenci (
+    Klient_id INT PRIMARY KEY AUTO_INCREMENT,
+    Imię VARCHAR(50),
+    Nazwisko VARCHAR(50),
+    Pesel INT,
+    Adres_korespondencyjny VARCHAR(100),
+    Telefon INT,
+    Email VARCHAR(100)
+    )
+
+CREATE TABLE Nieruchomości (
+    Nieruchomość_id INT PRIMARY KEY AUTO_INCREMENT,
+    Adres VARCHAR(100),
+    Typ_nieruchomości VARCHAR(100),
+    Liczba_mieszkańców INT
+    )
+
+CREATE TABLE Deklaracje (
+    Deklaracja_id INT PRIMARY KEY AUTO_INCREMENT,
+    Data_złożenia DATETIME,
+    Typ_odpadów VARCHAR(100),
+    Częstotliwość_odbioru VARCHAR(45),
+    Stawka DECIMAL(10,2)
+    )
+
+CREATE TABLE Harmonogram_wywozu (
+    Harmonogram_id INT PRIMARY KEY AUTO_INCREMENT,
+    Data_wywozu DATETIME,
+    Typ_odpadów VARCHAR(45)
+    )
+
+CREATE TABLE Faktury (
+    Faktura_id INT PRIMARY KEY AUTO_INCREMENT,
+    Numer INT,
+    Data_wystawienia DATETIME,
+    Kwota DECIMAL(10,2),
+    Status_faktury VARCHAR(45)
+    )
+
+ALTER TABLE nieruchomości
+ADD Klient_id INT;
+
+ALTER TABLE nieruchomości
+ADD CONSTRAINT fk_nieruchomości_klienci
+FOREIGN KEY (Klient_id)
+REFERENCES Klienci(id)
+
+ALTER TABLE nieruchomości
+ADD Deklaracja_id INT;
+
+ALTER TABLE nieruchomości
+ADD CONSTRAINT fk_nieruchomości_deklaracje
+FOREIGN KEY (Deklaracja_id)
+REFERENCES Deklaracje(id)
+
+ALTER TABLE	faktury
+ADD Klienci_id INT;
+
+ALTER TABLE faktury
+ADD CONSTRAINT fk_faktury_klienci
+FOREIGN KEY (Klient_id)
+REFERENCES klienci(id)
+
+ALTER TABLE harmonogram_wywozu
+ADD Nieruchomości_id INT;
+
+ALTER TABLE harmonogram_wywozu
+ADD CONSTRAINT fk_harmonogram_wywozu_nieruchomości
+FOREIGN KEY (Nieruchomość_id)
+REFERENCES nieruchomości(id)
+
+
