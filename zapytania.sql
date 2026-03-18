@@ -96,7 +96,8 @@ WHERE klient_id = 1
 DELETE FROM klienci
 WHERE klient_id = 2
 
-
+SELECT k.imię, k.nazwisko, f.kwota FROM klienci k
+LEFT JOIN faktury f ON k.klient_id = f.klient_id
 
 
 
