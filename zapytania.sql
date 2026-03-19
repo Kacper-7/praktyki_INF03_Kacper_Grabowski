@@ -69,6 +69,14 @@ ADD CONSTRAINT fk_harmonogram_wywozu_nieruchomości
 FOREIGN KEY (Nieruchomość_id)
 REFERENCES nieruchomości(id)
 
+ALTER TABLE deklaracje
+ADD faktura_id INT
+
+ALTER TABLE deklaracje
+ADD CONSTRAINT fk_deklaracje_faktury
+FOREIGN KEY (faktura_id)
+REFERENCES faktury(faktura_id)
+
 INSERT INTO klienci (imię, nazwisko, pesel, adres_korespondencyjny, telefon, email)
 VALUES ("Kacper", "Baranowski", "08260421987", "Witkowo ul. Kosynierów Miłosławskich 5", "670321094", "kbaranowski4@gmail.com")
 
