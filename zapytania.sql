@@ -89,8 +89,8 @@ VALUES ("Witkowo ul. Kosynierów Miłosławskich 5", "dom jednorodzinny", "3", "
 INSERT INTO faktury (Numer, Data_wystawienia, Kwota, Status_faktury, Klient_id)
 VALUES ("001", "2026-03-13", "178.09", "Opłacona", "1")
 
-INSERT INTO deklaracje (Data_złożenia, Typ_odpadów, Częstotliwość_odbioru, Stawka)
-VALUES ("2026-03-10", "Plastik, Szkło, Papier", "Raz w miesiącu", "63.00")
+INSERT INTO deklaracje (Data_złożenia, Typ_odpadów, Częstotliwość_odbioru, Stawka, faktura_id)
+VALUES ("2026-03-10", "Plastik, Szkło, Papier", "Raz w miesiącu", "63.00", "1")
 
 INSERT INTO harmonogram_wywozu (Data_wywozu, Typ_odpadów, Nieruchomość_id)
 VALUES ("2026-03-20", "Stałe", "1")
